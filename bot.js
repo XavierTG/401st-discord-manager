@@ -7,6 +7,10 @@ client.on('ready', () => {
   .then(link => {
     console.log(`Generated bot invite link: ${link}`);
   });
+  let tempguild = client.guilds.find(`name`, `bottesting`);
+  if(!tempguild.channels.find(`name`, `messagelogs`)) {
+    tempguild.createChannel(`messagelogs`, `text`);
+  }  
 });
 client.on('message', msg => {
   if (msg.author.bot) return;
@@ -20,7 +24,7 @@ client.on('message', msg => {
   }
   if (msg.content === '-401-botinfo') {
     return;
-    msg.reply('this discord bot is scripted and managed by XavierTG for usage by the ROBLOX group: CAR Coruscant Guard. This bot is in pre-alpha testing and is lacking many features at the moment. Still a work in progress.');
+    msg.reply('this discord bot is scripted and managed by XavierTG for usage by the ROBLOX group: CAR Coruscant Guard. This bot currently logs messages sent in the server. Still a work in progress.');
     return;
   }
   if (msg.content === '-401-help') {
