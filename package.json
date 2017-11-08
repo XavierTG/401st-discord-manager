@@ -1,0 +1,12 @@
+{
+"name": "-401-discordbot",
+"description": "Discord bot for ROBLOX group CAR Coruscant Guard, by XavierTG",
+"version": "0.1.0",
+"main": "bot.js",
+"scripts": {
+  "start": "node bot.js"
+  },
+  "dependencies": {
+  "discord.js": "11.1.0"
+  }
+ }
