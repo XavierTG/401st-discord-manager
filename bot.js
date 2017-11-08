@@ -3,7 +3,7 @@ const client = new Discord.Client();
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-  client.generateInvite
+  client.generateInvite()
   .then(link => {
     console.log(`Generated bot invite link: ${link}`);
   });
