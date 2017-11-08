@@ -12,7 +12,7 @@ client.on('guildMemberAdd', memberguild => {
   let newid = memberguild.id;
   let newguild = memberguild.guild;
   memberguild.addRole.find(`name`, `Verified`);
-}  
+});  
 client.on('message', msg => {
   if (msg.author.bot) return;
   if (msg.channel.type === "dm") return msg.channel.sendMessage("Sorry, but I am currently not capable of responding to DMs.");
