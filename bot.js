@@ -10,8 +10,13 @@ client.on('ready', () => {
   let tempguild = client.guilds.find(`name`, `bottesting`);
   console.log(tempguild.name)
   if(!tempguild.channels.find(`name`, `messagelogs`)) {
-    console.log(`messagelogs channel not found.`)
+    console.log(`Unable to find messagelogs channel.`);
     tempguild.createChannel(`messagelogs`, `text`);
+    console.log(`Created messagelogs channel.`);
+    return;
+  }
+  if(tempguild.channels.find(`name`, `messagelogs`)) {
+    console.log(`messasgelogs channel was found.`);
   }  
 });
 client.on('message', msg => {
