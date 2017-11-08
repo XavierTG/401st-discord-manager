@@ -7,7 +7,7 @@ client.on('ready', () => {
   .then(link => {
     console.log(`Generated bot invite link: ${link}`);
   });
-  let tempguild = client.guilds.find(`name`, `bottesting`);
+  let tempguild = client.guilds.find(`name`, `Coruscant Guard`);
   console.log(`Guild "${tempguild.name}" was found.`);
   if(!tempguild.channels.find(`name`, `messagelogs`)) {
     console.log(`Unable to find messagelogs channel.`);
