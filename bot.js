@@ -14,7 +14,7 @@ client.on('message', msg => {
   if (msg.channel.type === "dm") return msg.channel.sendMessage("Sorry, but I am currently not capable of responding to DMs.");
   console.log(`${msg.author.username} sent "${msg.content}" in #${msg.channel.name}`);
   let channel = msg.channel.guild.channels.find(`name`, `logs`);
-  channel.sendMessage(`${msg.author.username} sent "${msg.content}" in #${msg.channel}`);
+  channel.sendMessage(`${msg.author.username} sent "${msg.content}" in ${msg.channel}`);
   if (msg.content === '-401-test') {
     msg.reply('this is a test response to a test prompt message.');
     return;
