@@ -64,11 +64,9 @@ client.on('message', msg => {
     return;
   }
 });
-client.on('messageUpdate', msgchange => {
-  let oldmsg = msgchange.oldMessage.content;
-  let newmsg = msgchange.newMessage.content;
-  let channel = msgchange.channel.guild.channels.find('name', 'messagelogs');
-  let person = msgchange.author.username;
+client.on('messageUpdate', function(oldmsg, newmsg) => {
+  let channel = newmsg.channel.guild.channels.find('name', 'messagelogs');
+  let person = newmsg.author.username;
   channel.sendMessage(`${person} edited a message.`);
   channel.sendMessage(`Before: ${oldmsg}`);
   channel.sendMessage(`After: ${newmsg}`);
