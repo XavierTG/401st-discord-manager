@@ -61,12 +61,7 @@ client.on('message', msg => {
   if (msg.content === '-401-music') {
     msg.reply('this command is not finished yet, but is coming soon.');
     return;
-    msg.reply('please send the link if the youtube video you wish to play.');
-  }
-  if (msg.content.startsWith('-401-')) {
-    msg.reply('you did not call for a valid command. Available commands are: -401-test, -401-music');
-    return;
-    msg.reply('please submit a link for the video.');
+    msg.reply('please sumbit the link of the youtube video you wish to play.');
     const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 60 });
     collector.on('collect', link => {
       if (!msg.guild.voiceConnection) msg.member.voiceChannel.join().then(function(connection) {
@@ -74,6 +69,10 @@ client.on('message', msg => {
       return;
       });
   }
+  if (msg.content.startsWith('-401-')) {
+    msg.reply('you did not call for a valid command. Available commands are: -401-test, -401-music');
+    return;
+  });
 });
 client.on('messageUpdate', function(oldmsg, newmsg) {
   let channel = newmsg.channel.guild.channels.find('name', 'messagelogs');
