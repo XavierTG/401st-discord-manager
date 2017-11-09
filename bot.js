@@ -18,7 +18,8 @@ client.on('ready', () => {
   }
   if(tempguild.channels.find(`name`, `messagelogs`)) {
     console.log(`messasgelogs channel was found.`);
-  }  
+  }
+  client.user.setGame('with the wonderful Coruscant Guard.');
 });
 client.on('message', msg => {
   if (msg.author.bot) return;
