@@ -59,8 +59,6 @@ client.on('message', msg => {
   var args = msg.content.substring(PREFIX.length).split(" ");
   switch (args[0].toLowerCase()) {
     case "music":
-      msg.reply('this command is not finished yet, but is coming soon.');
-      break;
       if (!args[1]) {
         msg.reply('you did not provide a link to the video.');
         return;
