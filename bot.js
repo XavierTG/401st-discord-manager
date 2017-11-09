@@ -3,7 +3,7 @@ const client = new Discord.Client();
 const fs = require('fs');
 const YTDL = require("ytdl-core");
 const PREFIX = "-401-";
-const fs = require('fs');
+const opusscript = require("opusscript");
 let musicplaying = false;
 console.log(`${musicplaying}`);
 var servers = {};
