@@ -4,6 +4,8 @@ const fs = require('fs')
 const YTDL = require("ytdl-core")
 let musicplaying = false;
 console.log(`${musicplaying}`);
+var servers = {};
+queue: []
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
   client.generateInvite(["ADMINISTRATOR"])
@@ -64,6 +66,13 @@ client.on('message', msg => {
   if (msg.content.startsWith('-401-')) {
     msg.reply('you did not call for a valid command. Available commands are: -401-test, -401-music');
     return;
+    msg.reply('please submit a link for the video.');
+    const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 60 });
+    collector.on('collect', link => {
+      if (!msg.guild.voiceConnection) msg.member.voiceChannel.join().then(function(connection) {
+      play(connection, link)
+      break;
+      });
   }
 });
 client.on('messageUpdate', function(oldmsg, newmsg) {
