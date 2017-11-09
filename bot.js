@@ -42,6 +42,14 @@ client.on('message', msg => {
   let channel = msg.channel.guild.channels.find(`name`, `messagelogs`);
   channel.sendMessage(`${msg.author.username} sent "${msg.content}" in ${msg.channel}`);
   channel.sendMessage(`______________________`);
+  if (!msg.content.startsWith(PREFIX)) return;
+  var args = msg.content.substring(PREFIX.length).split(" ");
+  switch (args[0].toLowerCase()) {
+    case "music":
+      msg.reply('this command is not finished yet, but is coming soon.');
+    default:
+      msg.reply('the command you called for does not exist. Available commands are: -401-test, -401-help, -401-commands, -401-music, -401-botinfo');
+  }
 });
 client.on('messageUpdate', function(oldmsg, newmsg) {
   let channel = newmsg.channel.guild.channels.find('name', 'messagelogs');
