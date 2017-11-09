@@ -48,6 +48,8 @@ client.on('message', msg => {
   switch (args[0].toLowerCase()) {
     case "music":
       msg.reply('this command is not finished yet, but is coming soon.');
+    case "test":
+      msg.reply('this is a response to a test prompt message.');
     default:
       msg.reply('the command you called for does not exist. Available commands are: -401-test, -401-help, -401-commands, -401-music, -401-botinfo');
   }
