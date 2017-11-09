@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const YTDL = require(`ytdl-core`)
+const YTDL = require("ytdl-core")
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
   client.generateInvite(["ADMINISTRATOR"])
