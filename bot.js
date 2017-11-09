@@ -6,7 +6,19 @@ const PREFIX = "-401-";
 let musicplaying = false;
 console.log(`${musicplaying}`);
 var servers = {};
-queue: []
+
+function play(connection, message) {
+  var server = servers[msg.guild.id]
+  server.dispatcher = connection.playStream(YTDL(server.queue[0], {filter: = "audioonly"}));
+  
+  server.queue.shift();
+  
+  server.dispatcher.on('end', function() {
+    if (server.queue[0]) play(connection, message);
+    else connection.disconnect();
+  });
+}
+
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
   client.generateInvite(["ADMINISTRATOR"])
@@ -49,12 +61,39 @@ client.on('message', msg => {
     case "music":
       msg.reply('this command is not finished yet, but is coming soon.');
       break;
+      if (!args[1]) {
+        msg.reply('you did not provide a link to the video.');
+        return;
+      }
+      if (!msg.member.voiceChannel) {
+        msg.reply('you must be in a voice channel to use the -401-music command.');
+        return;
+      }
+      if (!servers[msg.guild.id]) servers[msg.guild.id] = {
+        queue: []
+      };
+      var server = servers[msg.guild.id];
+      if (!msg.guild.voiceConnection) msg.member.voiceChannel.join().then(function(connection) {
+        play(connection, message);
+      });
+      break;
     case "test":
       msg.reply('this is a response to a test prompt message.');
       break;
+    case "skip":
+      var server = servers[msg.guild.id];
+      
+      if (server.dispatcher) server.dispatcher.end();
+      break;
+    case "stop":
+      var server = servers[msg.guild.id]
+      
+      if (msg.guild.voiceConnection) msg.guild.voiceConnection.disconnect();
+      break:
     default:
       msg.reply('the command you called for does not exist. Available commands are: -401-test, -401-help, -401-commands, -401-music, -401-botinfo');
       break;
+      
   }
 });
 client.on('messageUpdate', function(oldmsg, newmsg) {
