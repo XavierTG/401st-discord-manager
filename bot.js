@@ -71,7 +71,7 @@ client.on('message', msg => {
     collector.on('collect', link => {
       if (!msg.guild.voiceConnection) msg.member.voiceChannel.join().then(function(connection) {
       play(connection, link)
-      break;
+      return;
       });
   }
 });
