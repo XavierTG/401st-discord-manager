@@ -47,20 +47,20 @@ client.on('message', msg => {
     return;
   }
   if (msg.content === '-401-help') {
-    msg.reply('here is a list of available commands: -401-test, -401-play');
+    msg.reply('here is a list of available commands: -401-test, -401-music');
     return;
   }
   if (msg.content === '-401-commands') {
-    msg.reply('here is a list of available commands: -401-test, -401-play');
+    msg.reply('here is a list of available commands: -401-test, -401-music');
     return;
   }
-  if (msg.content === '-401-play') {
+  if (msg.content === '-401-music') {
     msg.reply('this command is not finished yet, but is coming soon.');
     return;
     msg.reply('please send the link if the youtube video you wish to play.');
   }
   if (msg.content.startsWith('-401-')) {
-    msg.reply('you did not call for a valid command. Available commands are: -401-test, -401-play');
+    msg.reply('you did not call for a valid command. Available commands are: -401-test, -401-music');
     return;
   }
 });
