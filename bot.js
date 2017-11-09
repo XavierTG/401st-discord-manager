@@ -35,6 +35,14 @@ client.on('ready', () => {
   }
   client.user.setGame('with the wonderful Coruscant Guard.');
 });
+client.on('message', msg => {
+  if (msg.author.bot) return;
+  if (msg.channel.type === "dm") return msg.channel.sendMessage("Sorry, but I am currently not capable of responding to DMs.");
+  console.log(`${msg.author.username} sent "${msg.content}" in #${msg.channel.name}`);
+  let channel = msg.channel.guild.channels.find(`name`, `messagelogs`);
+  channel.sendMessage(`${msg.author.username} sent "${msg.content}" in ${msg.channel}`);
+  channel.sendMessage(`______________________`);
+});
 client.on('messageUpdate', function(oldmsg, newmsg) {
   let channel = newmsg.channel.guild.channels.find('name', 'messagelogs');
   let person = newmsg.author.username;
