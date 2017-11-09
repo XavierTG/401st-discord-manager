@@ -11,7 +11,7 @@ client.on('ready', () => {
   let tempguild = client.guilds.find(`name`, `Coruscant Guard`);
   console.log(`Guild "${tempguild.name}" was found.`);
   let temprole = tempguild.roles.find('name', 'CAR: 401st Discord Manager');
-  console.log('Role "${temprole.name}" was found.');
+  console.log(`Role "${temprole.name}" was found.`);
   temprole.hoist = true;
   console.log('Hoist is active.');
   if(!tempguild.channels.find(`name`, `messagelogs`)) {
