@@ -64,7 +64,7 @@ client.on('message', msg => {
     return;
   }
 });
-client.on('messageUpdate', function(oldmsg, newmsg) => {
+client.on('messageUpdate', function(oldmsg, newmsg) {
   let channel = newmsg.channel.guild.channels.find('name', 'messagelogs');
   let person = newmsg.author.username;
   channel.sendMessage(`${person} edited a message.`);
