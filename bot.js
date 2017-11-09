@@ -71,5 +71,9 @@ client.on('messageUpdate', function(oldmsg, newmsg) {
   channel.sendMessage(`Before: ${oldmsg}`);
   channel.sendMessage(`After: ${newmsg}`);
   channel.sendMessage('______________');
+  console.log(`${person} edited a message.`);
+  console.log(`Before: ${oldmsg}`);
+  console.log(`After: ${newmsg}`);
+  console.log('______________');
 });
 client.login(process.env.BOT_TOKEN);
