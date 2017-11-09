@@ -48,6 +48,10 @@ client.on('message', msg => {
     return;
     msg.reply('please send the link if the youtube video you wish to play.');
   }
+  if (msg.content.startsWith('-401-')) {
+    msg.reply('you did not call for a valid command. Available commands are: -401-test, -401-play');
+    return;
+  }
 });
 
 client.login(process.env.BOT_TOKEN);
