@@ -89,7 +89,7 @@ client.on('message', msg => {
       var server = servers[msg.guild.id]
       
       if (msg.guild.voiceConnection) msg.guild.voiceConnection.disconnect();
-      break:
+      break;
     default:
       msg.reply('the command you called for does not exist. Available commands are: -401-test, -401-help, -401-commands, -401-music, -401-botinfo');
       break;
