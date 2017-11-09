@@ -40,7 +40,11 @@ client.on('message', msg => {
     msg.reply('this discord bot is scripted and managed by XavierTG for usage by the ROBLOX group: CAR Coruscant Guard. This bot currently logs messages sent in the server. Still a work in progress.');
     return;
   }
-  if (msg.content === '-401-help') or if(msg.content === '-401-commands') {
+  if (msg.content === '-401-help') {
+    msg.reply('here is a list of available commands: -401-test, -401-play');
+    return;
+  }
+  if (msg.content === '-401-commands') {
     msg.reply('here is a list of available commands: -401-test, -401-play');
     return;
   }
