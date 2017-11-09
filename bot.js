@@ -68,7 +68,7 @@ client.on('message', msg => {
       play(connection, link)
       return;
       });
-  }
+  })
   if (msg.content.startsWith('-401-')) {
     msg.reply('you did not call for a valid command. Available commands are: -401-test, -401-music');
     return;
