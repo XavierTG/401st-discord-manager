@@ -103,8 +103,8 @@ client.on('message', msg => {
   }
 });
 client.on('messageUpdate', function(old, newm) {
-  let channel = newmsg.channel.guild.channels.find('name', 'messagelogs');
-  let person = newmsg.author.username;
+  let channel = newm.channel.guild.channels.find('name', 'messagelogs');
+  let person = newm.author.username;
   console.log(`${channel.name}`);
   console.log(`${person}`);
   let oldmsg = old.content;
