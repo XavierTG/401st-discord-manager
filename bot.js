@@ -99,7 +99,7 @@ client.on('message', msg => {
 client.on('messageUpdate', function(oldmsg, newmsg) {
   let channel = newmsg.channel.guild.channels.find('name', 'messagelogs');
   let person = newmsg.author.username;
-  let pic = newmsg.author.avatar;
+  let pic = newmsg.author.avatarID;
   let embed = new Discord.RichEmbed();
   embed.setTitle('Message edit.');
   embed.setColor("#A52A2A");
@@ -107,7 +107,7 @@ client.on('messageUpdate', function(oldmsg, newmsg) {
   embed.setTimestamp();
   embed.addField('Original message:', `${oldmsg}`);
   embed.addField('Message edit:', `${newmsg}`);
-  embed.setThumbnail({pic});
+  embed.setThumbnail("https://awesomewallpaper.files.wordpress.com/2011/01/star-wars-evil-senate.jpg");
   channel.send({embed})
   channel.sendMessage(`${person} edited a message.`);
   channel.sendMessage(`Before: ${oldmsg}`);
