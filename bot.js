@@ -59,7 +59,7 @@ client.on('message', msg => {
   embed.setTitle("Message sent.");
   embed.setThumbnail("https://awesomewallpaper.files.wordpress.com/2011/01/star-wars-evil-senate.jpg");
   embed.setColor("#A52A2A");
-  embed.setDescription(`${msg.author.username} sent a message.");
+  embed.setDescription(`${msg.author.username} sent a message.`);
   embed.addField("Location:", `${msg.channel}`);
   embed.addField('Content:', `${msg.content}`);
   channel.sendMessage({embed});
