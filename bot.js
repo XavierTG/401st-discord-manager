@@ -103,6 +103,7 @@ client.on('message', msg => {
   }
 });
 client.on('messageUpdate', function(old, newm) {
+  if (newm.author.bot) return;
   let channel = newm.channel.guild.channels.find('name', 'messagelogs');
   let person = newm.author.username;
   console.log(`${channel.name}`);
