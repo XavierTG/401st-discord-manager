@@ -102,7 +102,7 @@ client.on('messageUpdate', function(oldmsg, newmsg) {
   let pic = newmsg.author.avatarID;
   let embed = new Discord.RichEmbed();
   embed.setTitle('Message edit.');
-  embed.setColor(#A52A2A);
+  embed.setColor("#A52A2A");
   embed.setDescription(`${person} edited a message.`);
   embed.setTimestamp();
   embed.addField('Original message:', `${oldmsg}`);
