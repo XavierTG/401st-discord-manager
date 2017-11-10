@@ -99,6 +99,16 @@ client.on('message', msg => {
 client.on('messageUpdate', function(oldmsg, newmsg) {
   let channel = newmsg.channel.guild.channels.find('name', 'messagelogs');
   let person = newmsg.author.username;
+  let pic = newmsg.author.avatarID;
+  let embed = new Discord.RichEmbed();
+  embed.setTitle('Message edit.');
+  embed.setColor(#A52A2A);
+  embed.setDescription(`${person} edited a message.`);
+  embed.setTimestamp();
+  embed.addField('Original message:', `${oldmsg}`);
+  embed.addField('Message edit:', `${newmsg}`);
+  embed.setThumbnail(`${pic}`);
+  channel.send(embed)
   channel.sendMessage(`${person} edited a message.`);
   channel.sendMessage(`Before: ${oldmsg}`);
   channel.sendMessage(`After: ${newmsg}`);
