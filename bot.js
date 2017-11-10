@@ -108,7 +108,7 @@ client.on('messageUpdate', function(oldmsg, newmsg) {
   embed.addField('Original message:', `${oldmsg}`);
   embed.addField('Message edit:', `${newmsg}`);
   embed.setThumbnail(`${pic}`);
-  channel.send(embed)
+  channel.send({embed})
   channel.sendMessage(`${person} edited a message.`);
   channel.sendMessage(`Before: ${oldmsg}`);
   channel.sendMessage(`After: ${newmsg}`);
