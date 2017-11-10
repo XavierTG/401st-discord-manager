@@ -110,7 +110,6 @@ client.on('messageUpdate', function(oldmsg, newmsg) {
   embed.setTitle('Message edit.');
   embed.setColor("#A52A2A");
   embed.setDescription(`${person} edited a message.`);
-  embed.setTimestamp();
   embed.addField('Original message:', `${oldmsg}`);
   embed.addField('Message edit:', `${newmsg}`);
   embed.setThumbnail("https://awesomewallpaper.files.wordpress.com/2011/01/star-wars-evil-senate.jpg");
