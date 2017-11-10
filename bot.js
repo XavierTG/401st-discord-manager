@@ -106,7 +106,7 @@ client.on('messageUpdate', function(oldmsg, newmsg) {
   let channel = newmsg.channel.guild.channels.find('name', 'messagelogs');
   let person = newmsg.author.username;
   console.log(`${channel.name}`);
-  console.log(`{person}`);
+  console.log(`${person}`);
   let pic = newmsg.author.avatarID;
   console.log('Edit thumbnail was set.');
   console.log(`${person} edited a message.`);
@@ -126,5 +126,5 @@ client.on('messageUpdate', function(oldmsg, newmsg) {
   console.log('New message field added.');
   embed.setThumbnail("https://awesomewallpaper.files.wordpress.com/2011/01/star-wars-evil-senate.jpg");
   channel.sendMessage({embed});
-});
+};
 client.login(process.env.BOT_TOKEN);
