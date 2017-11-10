@@ -4,7 +4,7 @@ const fs = require('fs');
 const YTDL = require("ytdl-core");
 const PREFIX = "-401-";
 const opusscript = require("opusscript");
-const ffmpeg = require("ffmpeg.js");
+const ffmpeg = require('fluent-ffmpeg');
 let musicplaying = false;
 console.log(`${musicplaying}`);
 var servers = {};
