@@ -108,11 +108,17 @@ client.on('messageUpdate', function(oldmsg, newmsg) {
   let pic = newmsg.author.avatarID;
   let embed = new Discord.RichEmbed();
   embed.setTitle('Message edit.');
+  console.log('Edit title was set.')
   embed.setColor("#A52A2A");
+  console.log('Edit color was set.');
   embed.setDescription(`${person} edited a message.`);
+  console.log('Edit description was set.');
   embed.addField('Original message:', `${oldmsg}`);
+  console.log('Original message field added.');
   embed.addField('Message edit:', `${newmsg}`);
+  console.log('New message field added.');
   embed.setThumbnail("https://awesomewallpaper.files.wordpress.com/2011/01/star-wars-evil-senate.jpg");
+  console.log('Edit thumbnail was set.');
   console.log(`${person} edited a message.`);
   console.log(`Before: ${oldmsg}`);
   console.log(`After: ${newmsg}`);
