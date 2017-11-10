@@ -108,11 +108,6 @@ client.on('messageUpdate', function(oldmsg, newmsg) {
   embed.addField('Original message:', `${oldmsg}`);
   embed.addField('Message edit:', `${newmsg}`);
   embed.setThumbnail("https://awesomewallpaper.files.wordpress.com/2011/01/star-wars-evil-senate.jpg");
-  channel.send({embed})
-  channel.sendMessage(`${person} edited a message.`);
-  channel.sendMessage(`Before: ${oldmsg}`);
-  channel.sendMessage(`After: ${newmsg}`);
-  channel.sendMessage('______________');
   console.log(`${person} edited a message.`);
   console.log(`Before: ${oldmsg}`);
   console.log(`After: ${newmsg}`);
