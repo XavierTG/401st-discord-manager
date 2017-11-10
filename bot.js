@@ -92,7 +92,7 @@ client.on('message', msg => {
       embed.setDescription("Work in progress bot developed by XavierTG for use in monitoring and advancing CAR's 401st discord server.");
       embed.setColor("#A52A2A");
       embed.setImage("https://awesomewallpaper.files.wordpress.com/2011/01/star-wars-evil-senate.jpg");
-      channel.sendMessage({embed});
+      msg.channel.sendMessage({embed});
       break;
     case "skip":
       var server = servers[msg.guild.id];
