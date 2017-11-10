@@ -128,5 +128,5 @@ client.on('messageUpdate', function(old, newm) {
   console.log('New message field added.');
   embed.setThumbnail("https://awesomewallpaper.files.wordpress.com/2011/01/star-wars-evil-senate.jpg");
   channel.sendMessage({embed});
-};
+});
 client.login(process.env.BOT_TOKEN);
