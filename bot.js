@@ -86,6 +86,14 @@ client.on('message', msg => {
     case "test":
       msg.reply('this is a response to a test prompt message.');
       break;
+    case "botinfo":
+      let embed = new Discord.RichEmbed();
+      embed.setTitle('CAR: 401st Discord Manager Bot Information');
+      embed.setDescription("Work in progress bot developed by XavierTG for use in monitoring and advancing CAR's 401st discord server.");
+      embed.setColor("#A52A2A");
+      embed.setImage("https://awesomewallpaper.files.wordpress.com/2011/01/star-wars-evil-senate.jpg");
+      channel.sendMessage({embed});
+      break;
     case "skip":
       var server = servers[msg.guild.id];
       
