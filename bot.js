@@ -128,7 +128,7 @@ client.on('messageUpdate', function(old, newm) {
   console.log('New message field added.');
   embed.setThumbnail("https://awesomewallpaper.files.wordpress.com/2011/01/star-wars-evil-senate.jpg");
   console.log('Thumbnail set.');
-  embed.addField('Location:', `${channel.name}`);
+  embed.addField('Location:', `${newm.channel}`);
   console.log('Location(channel) field added.');
   channel.sendMessage({embed});
 });
@@ -140,6 +140,9 @@ client.on('messageDelete', function(delmsg) {
   embed.setTitle('Message deletion:');
   embed.setColor("#A52A2A");
   embed.setDescription(`${person} deleted a message.`);
-  embed.addField('Content:', `${delmsg}`);
+  embed.addField('Content:', `${delmsg.content}`);
+  embed.setThumbnail("https://awesomewallpaper.files.wordpress.com/2011/01/star-wars-evil-senate.jpg");
+  embed.addField('Location:', `${delmsg.channel}`);
+  channel.sendMessage({embed});
 });
 client.login(process.env.BOT_TOKEN);
