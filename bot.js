@@ -102,11 +102,13 @@ client.on('message', msg => {
       
   }
 });
-client.on('messageUpdate', function(oldmsg, newmsg) {
+client.on('messageUpdate', function(old, newm) {
   let channel = newmsg.channel.guild.channels.find('name', 'messagelogs');
   let person = newmsg.author.username;
   console.log(`${channel.name}`);
   console.log(`${person}`);
+  let oldmsg = old.content;
+  let newmsg = newm.content;
   let pic = newmsg.author.avatarID;
   console.log('Edit thumbnail was set.');
   console.log(`${person} edited a message.`);
