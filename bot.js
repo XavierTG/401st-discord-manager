@@ -55,8 +55,14 @@ client.on('message', msg => {
   if (msg.channel.type === "dm") return msg.channel.sendMessage("Sorry, but I am currently not capable of responding to DMs.");
   console.log(`${msg.author.username} sent "${msg.content}" in #${msg.channel.name}`);
   let channel = msg.channel.guild.channels.find(`name`, `messagelogs`);
-  channel.sendMessage(`${msg.author.username} sent "${msg.content}" in ${msg.channel}`);
-  channel.sendMessage(`______________________`);
+  let embed = new Discord.RichEmbed();
+  embed.setTitle("Message sent.");
+  embed.setThumbnail("https://awesomewallpaper.files.wordpress.com/2011/01/star-wars-evil-senate.jpg");
+  embed.setColor("#A52A2A");
+  embed.setDescription(`${msg.author.username} sent a message.");
+  embed.addField("Location:", `${msg.channel}`);
+  embed.addField('Content:', `${msg.content}`);
+  channel.sendMessage({embed});
   if (!msg.content.startsWith(PREFIX)) return;
   var args = msg.content.substring(PREFIX.length).split(" ");
   switch (args[0].toLowerCase()) {
