@@ -105,8 +105,8 @@ client.on('message', msg => {
 client.on('messageUpdate', function(oldmsg, newmsg) {
   let channel = newmsg.channel.guild.channels.find('name', 'messagelogs');
   let person = newmsg.author.username;
-  console.log({channel.name});
-  console.log({person};
+  console.log(`${channel.name}`);
+  console.log(`{person}`;
   let pic = newmsg.author.avatarID;
   console.log('Edit thumbnail was set.');
   console.log(`${person} edited a message.`);
