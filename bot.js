@@ -110,7 +110,6 @@ client.on('messageUpdate', function(old, newm) {
   console.log(`${person}`);
   let oldmsg = old.content;
   let newmsg = newm.content;
-  let pic = newmsg.author.avatarID;
   console.log('Edit thumbnail was set.');
   console.log(`${person} edited a message.`);
   console.log(`Before: ${oldmsg}`);
