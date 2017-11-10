@@ -116,7 +116,7 @@ client.on('messageUpdate', function(old, newm) {
   console.log(`After: ${newmsg}`);
   console.log('______________');
   let embed = new Discord.RichEmbed();
-  embed.setTitle('Message edit.');
+  embed.setTitle('Message edit:');
   console.log('Edit title was set.')
   embed.setColor("#A52A2A");
   console.log('Edit color was set.');
@@ -128,8 +128,18 @@ client.on('messageUpdate', function(old, newm) {
   console.log('New message field added.');
   embed.setThumbnail("https://awesomewallpaper.files.wordpress.com/2011/01/star-wars-evil-senate.jpg");
   console.log('Thumbnail set.');
-  embed.addField('Location', `${channel.name}`);
+  embed.addField('Location:', `${channel.name}`);
   console.log('Location(channel) field added.');
   channel.sendMessage({embed});
+});
+client.on('messageDelete', function(delmsg) {
+  if (delmsg.author.bot) return;
+  let channel = delmsg.channel.guild.channels.find('name', 'messagelogs');
+  let person = delmsg.author.username;
+  let embed = new Discord.RichEmbed();
+  embed.setTitle('Message deletion:');
+  embed.setColor("#A52A2A");
+  embed.setDescription(`${person} deleted a message.`);
+  embed.addField('Content:', `${delmsg}`);
 });
 client.login(process.env.BOT_TOKEN);
