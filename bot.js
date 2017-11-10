@@ -113,9 +113,9 @@ client.on('messageUpdate', function(oldmsg, newmsg) {
   console.log('Edit color was set.');
   embed.setDescription(`${person} edited a message.`);
   console.log('Edit description was set.');
-  embed.addField('Original message:', `${oldmsg}`);
+  embed.addField("Original message:", `${oldmsg}`);
   console.log('Original message field added.');
-  embed.addField('Message edit:', `${newmsg}`);
+  embed.addField("Message edit:", `${newmsg}`);
   console.log('New message field added.');
   embed.setThumbnail("https://awesomewallpaper.files.wordpress.com/2011/01/star-wars-evil-senate.jpg");
   console.log('Edit thumbnail was set.');
