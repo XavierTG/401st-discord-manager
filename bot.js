@@ -134,6 +134,7 @@ client.on('messageUpdate', function(old, newm) {
 });
 client.on('messageDelete', function(delmsg) {
   if (delmsg.author.bot) return;
+  console.log('Message deletion detected.');
   let channel = delmsg.channel.guild.channels.find('name', 'messagelogs');
   let person = delmsg.author.username;
   let embed = new Discord.RichEmbed();
