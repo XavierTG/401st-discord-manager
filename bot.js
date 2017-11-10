@@ -127,6 +127,9 @@ client.on('messageUpdate', function(old, newm) {
   embed.addField('Message edit:', `${newmsg}`);
   console.log('New message field added.');
   embed.setThumbnail("https://awesomewallpaper.files.wordpress.com/2011/01/star-wars-evil-senate.jpg");
+  console.log('Thumbnail set.');
+  embed.addField('Location', `${channel.name}`);
+  console.log('Location(channel) field added.');
   channel.sendMessage({embed});
 });
 client.login(process.env.BOT_TOKEN);
