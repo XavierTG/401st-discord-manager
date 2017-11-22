@@ -100,8 +100,7 @@ client.on('message', msg => {
       if (server.dispatcher) server.dispatcher.end();
       break;
     case "stop":
-      var server = servers[msg.guild.id]
-      
+      var server = servers[msg.guild.id];
       if (msg.guild.voiceConnection) msg.guild.voiceConnection.disconnect();
       break;
     default:
