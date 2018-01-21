@@ -23,7 +23,7 @@ function play(connection, message) {
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
- client.user.setGame("Coruscant V2")
+ client.user.setGame("Coruscant V2", "https://www.roblox.com/games")
   let gamedata = {
     "game.name":"Coruscant V2"
   };
