@@ -23,7 +23,8 @@ function play(connection, message) {
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
- let gamedata = {
+ client.user.setGame("Coruscant V2")
+  let gamedata = {
     "game.name":"Coruscant V2"
   };
   client.user.setPresence(gamedata);
@@ -31,6 +32,7 @@ client.on('ready', () => {
   .then(link => {
     console.log(`Generated bot invite link: ${link}`);
   });
+  
   let tempguild = client.guilds.find(`name`, `Coruscant Guard`);
   console.log(`Guild "${tempguild.name}" was found.`);
   let temprole = tempguild.roles.find('name', 'CAR: 401st Discord Manager');
