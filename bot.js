@@ -29,8 +29,8 @@ client.on('ready', () => {
   });
   let gamedata = {
     "game.name":"Coruscant V2"
-  }
-  client.user.setPresence(gamedata)
+  };
+  client.user.setPresence(gamedata);
   let tempguild = client.guilds.find(`name`, `Coruscant Guard`);
   console.log(`Guild "${tempguild.name}" was found.`);
   let temprole = tempguild.roles.find('name', 'CAR: 401st Discord Manager');
@@ -52,7 +52,6 @@ client.on('ready', () => {
   if(tempguild.channels.find(`name`, `messagelogs`)) {
     console.log(`messasgelogs channel was found.`);
   }
-  client.user.setGame('with the wonderful Coruscant Guard.');
 });
 client.on('message', msg => {
   if (msg.author.bot) return;
