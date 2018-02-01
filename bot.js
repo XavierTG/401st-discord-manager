@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const fs = require('fs');
 const YTDL = require("ytdl-core");
-const PREFIX = "-401-";
+const PREFIX = "-187-";
 const opusscript = require("opusscript");
 const FFMPEG = require('fluent-ffmpeg');
 let musicplaying = false;
@@ -32,28 +32,6 @@ client.on('ready', () => {
   .then(link => {
     console.log(`Generated bot invite link: ${link}`);
   });
-  
-  let tempguild = client.guilds.find(`name`, `Coruscant Guard`);
-  console.log(`Guild "${tempguild.name}" was found.`);
-  let temprole = tempguild.roles.find('name', 'CAR: 401st Discord Manager');
-  console.log(`Role "${temprole.name}" was found.`);
-  if (temprole.hoist === true) {
-    console.log('Hoist is active.');
-    return;
-  }
-  if (!temprole.hoist === true) {
-    temprole.hoist = true;
-    console.log(temprole.hoist);
-  }
-  if(!tempguild.channels.find(`name`, `messagelogs`)) {
-    console.log(`Unable to find messagelogs channel.`);
-    tempguild.createChannel(`messagelogs`, `text`);
-    console.log(`Created messagelogs channel.`);
-    return;
-  }
-  if(tempguild.channels.find(`name`, `messagelogs`)) {
-    console.log(`messasgelogs channel was found.`);
-  }
 });
 client.on('message', msg => {
   if (msg.author.bot) return;
