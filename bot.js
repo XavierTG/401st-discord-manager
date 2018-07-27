@@ -26,10 +26,11 @@ client.on('ready', () => {
 
 client.on('message', msg => {
   if (msg.author.bot) return;
+  console.log(msg.channel.type)
   if (!msg.channel.type === "dm") return msg.channel.sendMessage("Public bot usage is restricted.");
   //console.log(`${msg.author.username} sent "${msg.content}" in #${msg.channel.name}`);
-  let channel = msg.channel.guild.channels.find(`name`, `messagelogs`);
- /* let embed = new Discord.RichEmbed();
+  /*let channel = msg.channel.guild.channels.find(`name`, `messagelogs`);
+  let embed = new Discord.RichEmbed();
   embed.setTitle("Message sent.");
   embed.setThumbnail("https://awesomewallpaper.files.wordpress.com/2011/01/star-wars-evil-senate.jpg");
   embed.setColor("#A52A2A");
