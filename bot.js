@@ -7,6 +7,7 @@ const opusscript = require("opusscript");
 const FFMPEG = require('fluent-ffmpeg');
 const axios = require('axios');
 const secret = `${process.env.Secret_Key}`
+const pass = `${process.env.Command_Authorization_Code}`
 console.log(`secret-key: ${secret}`)
 let musicplaying = false;
 var servers = {};
@@ -27,7 +28,7 @@ client.on('ready', () => {
 client.on('message', msg => {
   if (msg.author.bot) return;
   console.log(msg.channel.type)
-  if (msg.channel.type !== "dm") return msg.channel.sendMessage("Public bot usage is restricted.");
+  if (msg.channel.type === "dm") return msg.channel.sendMessage("Private bot usage is restricted.");
   //console.log(`${msg.author.username} sent "${msg.content}" in #${msg.channel.name}`);
   /*let channel = msg.channel.guild.channels.find(`name`, `messagelogs`);
   let embed = new Discord.RichEmbed();
@@ -43,10 +44,17 @@ client.on('message', msg => {
   switch (args[0].toLowerCase()) {
     case "requestdata":
       if (!args[1]) {
-        msg.reply('error');
+        msg.reply('please enter the authorization code to use this command.');
         return;
       }
-      let requesturl = `https://api.jsonbin.io/b/${args[1]}`
+      if (args[1] !== pass) {
+        msg.reply('Invalid command authorization code.')
+      }
+      if (!args[2]) {
+        msg.reply('please specify the bin you would like to retrieve.')
+        return;
+      }
+      let requesturl = `https://api.jsonbin.io/b/${args[2]}`
       console.log(`RequestDATA command made to ${requesturl}`)
       axios.request({
         url: requesturl,
@@ -61,15 +69,15 @@ client.on('message', msg => {
     console.log(error);
   });
       break;
-    case "test":
+    /*case "test":
       msg.reply('this is a response to a test prompt message.');
-      break;
+      break;*/
     case "botinfo":
       let embed = new Discord.RichEmbed();
-      embed.setTitle('CAR: 401st Discord Manager Bot Information');
-      embed.setDescription("Work in progress bot developed by XavierTG for use in monitoring and advancing CAR's 401st discord server.");
-      embed.setColor("#A52A2A");
-      embed.setImage("https://awesomewallpaper.files.wordpress.com/2011/01/star-wars-evil-senate.jpg");
+      embed.setTitle('Kyber Games Services - Database and Server Management');
+      embed.setDescription("Designed to assist with management of Kyber Games databases and servers.");
+      embed.setColor("#0000FF");
+      embed.setImage(client.user.displayAvatarURL);
       msg.channel.sendMessage({embed});
       break;
     case "createdata":
@@ -85,6 +93,9 @@ client.on('message', msg => {
           testValue: 21
         }
       });
+      break;
+    case "announcement":
+      
       break;
     case "editdata":
       
