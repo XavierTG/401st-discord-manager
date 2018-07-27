@@ -36,7 +36,7 @@ client.on('message', msg => {
   if (!msg.content.startsWith(PREFIX)) return;
   var args = msg.content.substring(PREFIX.length).split(" ");
   switch (args[0].toLowerCase()) {
-    case "RequestDATA":
+    case "requestdata":
       if (!args[1]) {
         msg.reply('error');
         return;
@@ -55,7 +55,7 @@ client.on('message', msg => {
       embed.setImage("https://awesomewallpaper.files.wordpress.com/2011/01/star-wars-evil-senate.jpg");
       msg.channel.sendMessage({embed});
       break;
-    case "EditDATA":
+    case "editdata":
       break;
     default:
       msg.reply('the command you called for does not exist.');
