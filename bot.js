@@ -45,6 +45,8 @@ client.on('message', msg => {
         msg.reply('error');
         return;
       }
+      console.log(args[1]);
+      console.log(`jsonbin.io/b/${args[1]}`);
       axios.request({
         url: `jsonbin.io/b/${args[1]}`,
         method: 'GET',
@@ -52,7 +54,7 @@ client.on('message', msg => {
           'Content-Type': 'application/json',
           'secret-key': `${secret}`
         }
-      })
+      }) 
       .then(function (response) {
     msg.reply(response);
   })
