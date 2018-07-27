@@ -38,7 +38,7 @@ client.on('message', msg => {
   switch (args[0].toLowerCase()) {
     case "RequestDATA":
       if (!args[1]) {
-        msg.reply('you did not provide a link to the video.');
+        msg.reply('error');
         return;
       }
       msg.reply(args[1])
