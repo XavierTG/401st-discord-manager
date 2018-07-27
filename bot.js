@@ -52,7 +52,7 @@ client.on('message', msg => {
           'Content-Type': 'application/json',
           'secret-key': '${secret}'
         }
-      });
+      })
       .then(function (response) {
     msg.reply(response);
   })
