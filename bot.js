@@ -43,7 +43,7 @@ client.on('message', msg => {
  
   var args = msg.content.substring(PREFIX.length).split(" ");
   switch (args[0].toLowerCase()) {
-    if (msg.content.startsWith(PREXIF)) {
+    if (msg.content.startsWith(PREFIX)) {
     case "requestdata":
       if (!args[1]) {
         msg.reply('please enter the authorization code to use this command.');
