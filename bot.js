@@ -5,6 +5,7 @@ const YTDL = require("ytdl-core");
 const PREFIX = "DATACOMMAND-";
 const opusscript = require("opusscript");
 const FFMPEG = require('fluent-ffmpeg');
+const axios = require('axios')
 let musicplaying = false;
 var servers = {};
 
@@ -57,17 +58,17 @@ client.on('message', msg => {
       msg.channel.sendMessage({embed});
       break;
     case "createdata":
-      let req = new XMLHttpRequest();
-
-req.onreadystatechange = () => {
-  if (req.readyState == XMLHttpRequest.DONE) {
-    console.log(req.responseText);
-  }
-};
-
-req.open("POST", "https://api.jsonbin.io/b", true);
-req.setRequestHeader("Content-type", "application/json");
-req.send('{"Sample": "Hello World"}');
+      axios.request({
+        url: 'https://api.jsonbin.io/b',
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'secret-key': '$2a$10$xlr.dknPAEL7GsAQMmECR.Ds2YVAwzmgl88Zf2yQoojOpzvHw7d4u'
+        },
+        data: {
+          testValue = 37
+        }
+      }
       break;
     case "editdata":
       
