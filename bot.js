@@ -18,12 +18,6 @@ client.on('ready', () => {
   let gamedata = {
     "game.name":"Galatic Conquest"
   };
-  const actionlogchannel = client.guilds.find(`name`, `Kyber Games Community (Official)`).channels.find(`name`, `database_action_logs`);
-  if (client.guilds.find(`name`, `Kyber Games Community (Official)`).channels.find(`name`, `database_action_logs`)) {
-    console.log("found")
-  } else {
-    console.log("not found")
-  }
   client.user.setPresence(gamedata);
   client.generateInvite(["ADMINISTRATOR"])
   .then(link => {
@@ -60,21 +54,21 @@ client.on('message', msg => {
         msg.reply('please enter the authorization code to use this command.');
        embed.addField('Result:', 'Access Denied');
         embed.addField('Error:', 'nil_auth');
-        actionlogchannel.sendMessage({embed})
+        client.guilds.find(`name`, `Kyber Games Community (Official)`).channels.find(`name`, `database_action_logs`).sendMessage({embed})
         return;
       }
       if (args[1] !== pass) {
         msg.reply('invalid command authorization code.');
         embed.addField('Result:', 'Access Denied');
         embed.addField('Error:', 'bad_auth');
-        actionlogchannel.sendMessage({embed})
+        client.guilds.find(`name`, `Kyber Games Community (Official)`).channels.find(`name`, `database_action_logs`).sendMessage({embed})
         return;
       }
       if (!args[2]) {
         msg.reply('please specify the bin you would like to retrieve.')
        embed.addField('Result:', 'Access Denied');
         embed.addField('Error:', 'no_bin_');
-        actionlogchannel.sendMessage({embed})
+        client.guilds.find(`name`, `Kyber Games Community (Official)`).channels.find(`name`, `database_action_logs`).sendMessage({embed})
         return;
       }
       let requesturl = `https://api.jsonbin.io/b/${args[2]}`
@@ -92,7 +86,7 @@ client.on('message', msg => {
     console.log(error);
   });
       embed.addField('Result:', 'Access Granted');
-      actionlogchannel.sendMessage({embed})
+      client.guilds.find(`name`, `Kyber Games Community (Official)`).channels.find(`name`, `database_action_logs`).sendMessage({embed})
       break;
     /*case "test":
       msg.reply('this is a response to a test prompt message.');
@@ -107,21 +101,21 @@ client.on('message', msg => {
         msg.reply('please enter the authorization code to use this command.');
        embed.addField('Result:', 'Access Denied');
         embed.addField('Error:', 'nil_auth');
-        actionlogchannel.sendMessage({embed})
+        client.guilds.find(`name`, `Kyber Games Community (Official)`).channels.find(`name`, `database_action_logs`).sendMessage({embed})
         return;
       }
       if (args[1] !== pass) {
         msg.reply('invalid command authorization code.');
         embed.addField('Result:', 'Access Denied');
         embed.addField('Error:', 'bad_auth');
-        actionlogchannel.sendMessage({embed})
+        client.guilds.find(`name`, `Kyber Games Community (Official)`).channels.find(`name`, `database_action_logs`).sendMessage({embed})
         return;
       }
       if (!args[2]) {
         msg.reply('please specify the bin you would like to retrieve.')
        embed.addField('Result:', 'Access Denied');
         embed.addField('Error:', 'no_bin_');
-        actionlogchannel.sendMessage({embed})
+        client.guilds.find(`name`, `Kyber Games Community (Official)`).channels.find(`name`, `database_action_logs`).sendMessage({embed})
         return;
       }
       axios.request({
@@ -137,7 +131,7 @@ client.on('message', msg => {
         }
       });
       embed.addField('Result:', 'Access Granted');
-      actionlogchannel.sendMessage({embed})
+      client.guilds.find(`name`, `Kyber Games Community (Official)`).channels.find(`name`, `database_action_logs`).sendMessage({embed})
       break;
     case "announcement":
       
