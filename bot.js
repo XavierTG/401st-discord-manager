@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const fs = require('fs');
 const YTDL = require("ytdl-core");
-const PREFIX = "DATACOMMAND";
+const PREFIX = "DATACOMMAND-";
 const opusscript = require("opusscript");
 const FFMPEG = require('fluent-ffmpeg');
 let musicplaying = false;
@@ -59,6 +59,7 @@ client.on('message', msg => {
       break;
     default:
       msg.reply('the command you called for does not exist.');
+      msg.reply(args[1])
       break;
       
   }
