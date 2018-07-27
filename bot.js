@@ -42,7 +42,7 @@ client.on('message', msg => {
   embed.setTitle("Attempted database access.");
   embed.setThumbnail(client.user.displayAvatarURL);
   embed.setColor("0000FF");
-  embed.setDescription('${msg.author.username} attempted to access the database.')
+  embed.setDescription(`${msg.author.username} attempted to access the database.`)
   embed.setTimestamp(new Date())
   embed.setAuthor(msg.author)
   if (!msg.content.startsWith(PREFIX)) return;
