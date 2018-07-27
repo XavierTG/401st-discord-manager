@@ -40,7 +40,6 @@ client.on('message', msg => {
   embed.addField('Content:', `${msg.content}`);
   channel.sendMessage({embed});*/
   if (!msg.content.startsWith(PREFIX)) return;
-  if (msg.content.startsWith(PREFIX)) {
   var args = msg.content.substring(PREFIX.length).split(" ");
   switch (args[0].toLowerCase()) {
     case "requestdata":
@@ -96,21 +95,6 @@ client.on('message', msg => {
     default:
       msg.reply("the command you called for doesn't exist.");
       break;
-  }
-  } else if (msg.content.startsWith('KGCommand-')) {
-     switch (args[0].toLowerCase()) {
-    case "botinfo":
-      let embed = new Discord.RichEmbed();
-      embed.setTitle('Kyber Games Services - Database and Server Management');
-      embed.setDescription("Designed to assist with management of Kyber Games databases and servers.");
-      embed.setColor("#0000FF");
-      embed.setImage(client.user.displayAvatarURL);
-      msg.channel.sendMessage({embed});
-      break;
-      default:
-      msg.reply("the command you called for doesn't exist.")
-     }
-    }
   }
 });
 client.login(process.env.BOT_TOKEN);
