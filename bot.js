@@ -52,7 +52,7 @@ client.on('message', msg => {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          'secret-key': secret
+          'secret-key': `${secret}`
         }
       }).then(function (response) {
     console.log(response);
