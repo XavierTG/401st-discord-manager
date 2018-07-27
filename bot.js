@@ -55,7 +55,7 @@ client.on('message', msg => {
           'secret-key': `${secret}`
         }
       });
-      console.log(data[1])
+      console.log(data.testValue)
       break;
     case "test":
       msg.reply('this is a response to a test prompt message.');
