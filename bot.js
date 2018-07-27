@@ -7,8 +7,7 @@ const opusscript = require("opusscript");
 const FFMPEG = require('fluent-ffmpeg');
 const axios = require('axios');
 const secret = process.env.Secret_Key
-console.log(secret)
-console.log('secret-key: ${secret}')
+console.log(`secret-key: ${secret}`)
 let musicplaying = false;
 var servers = {};
 
@@ -51,7 +50,7 @@ client.on('message', msg => {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          'secret-key': '${secret}'
+          'secret-key': `${secret}`
         }
       })
       .then(function (response) {
@@ -78,7 +77,7 @@ client.on('message', msg => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'secret-key': '${secret}',
+          'secret-key': `${secret}`,
           'collection-id': (args[1])
         },
         data: {
