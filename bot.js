@@ -27,7 +27,7 @@ client.on('ready', () => {
 client.on('message', msg => {
   if (msg.author.bot) return;
   console.log(msg.channel.type)
-  if (!msg.channel.type === "dm") return msg.channel.sendMessage("Public bot usage is restricted.");
+  if (msg.channel.type !== "dm") return msg.channel.sendMessage("Public bot usage is restricted.");
   //console.log(`${msg.author.username} sent "${msg.content}" in #${msg.channel.name}`);
   /*let channel = msg.channel.guild.channels.find(`name`, `messagelogs`);
   let embed = new Discord.RichEmbed();
