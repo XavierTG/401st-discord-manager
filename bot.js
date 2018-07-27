@@ -7,6 +7,7 @@ const opusscript = require("opusscript");
 const FFMPEG = require('fluent-ffmpeg');
 const axios = require('axios');
 const secret = process.env.Secret_Key
+console.log(secret)
 console.log('secret-key: ${secret}')
 let musicplaying = false;
 var servers = {};
