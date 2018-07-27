@@ -66,7 +66,7 @@ client.on('message', msg => {
           'secret-key': '$2a$10$xlr.dknPAEL7GsAQMmECR.Ds2YVAwzmgl88Zf2yQoojOpzvHw7d4u'
         },
         data: {
-          testValue = 37
+          'testValue' = 37
         }
       }
       break;
