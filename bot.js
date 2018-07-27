@@ -96,6 +96,7 @@ client.on('message', msg => {
     default:
       msg.reply("the command you called for doesn't exist.");
       break;
+  }
   } else if (msg.content.startsWith('KGCommand-')) {
      switch (args[0].toLowerCase()) {
     case "botinfo":
