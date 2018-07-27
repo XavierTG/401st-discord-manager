@@ -6,7 +6,7 @@ const PREFIX = "DATACOMMAND-";
 const opusscript = require("opusscript");
 const FFMPEG = require('fluent-ffmpeg');
 const axios = require('axios');
-const secret = process.env.Secret_Key
+const secret = `${process.env.Secret_Key}`
 console.log(`secret-key: ${secret}`)
 let musicplaying = false;
 var servers = {};
@@ -52,7 +52,7 @@ client.on('message', msg => {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          'secret-key': `${secret}`
+          'secret-key': secret
         }
       }).then(function (response) {
     console.log(response);
