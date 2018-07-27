@@ -46,7 +46,7 @@ client.on('message', msg => {
         return;
       }
       axios.request({
-        url: `jsonbin.io/b/${args[1]}`,
+        url: 'jsonbin.io/b/${args[1]}',
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
