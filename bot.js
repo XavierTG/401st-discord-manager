@@ -18,8 +18,8 @@ client.on('ready', () => {
   let gamedata = {
     "game.name":"Galatic Conquest"
   };
-  let actionlogchannel = client.guilds.find(`name`, `Kyber Games Community (Official)`).channels.find(`name`, `database_action_logs`);
-  if (kyberguild.channels.find(`name`, `database_action_logs`)) {
+  const actionlogchannel = client.guilds.find(`name`, `Kyber Games Community (Official)`).channels.find(`name`, `database_action_logs`);
+  if (client.guilds.find(`name`, `Kyber Games Community (Official)`).channels.find(`name`, `database_action_logs`)) {
     console.log("found")
   } else {
     console.log("not found")
