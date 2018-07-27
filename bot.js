@@ -20,6 +20,7 @@ client.on('ready', () => {
     console.log(`Generated bot invite link: ${link}`);
   });
 });
+
 client.on('message', msg => {
   if (msg.author.bot) return;
   if (msg.channel.type === "dm") return msg.channel.sendMessage("Sorry, but I am currently not capable of responding to DMs.");
@@ -55,7 +56,21 @@ client.on('message', msg => {
       embed.setImage("https://awesomewallpaper.files.wordpress.com/2011/01/star-wars-evil-senate.jpg");
       msg.channel.sendMessage({embed});
       break;
+    case "createdata":
+      let req = new XMLHttpRequest();
+
+req.onreadystatechange = () => {
+  if (req.readyState == XMLHttpRequest.DONE) {
+    console.log(req.responseText);
+  }
+};
+
+req.open("POST", "https://api.jsonbin.io/b", true);
+req.setRequestHeader("Content-type", "application/json");
+req.send('{"Sample": "Hello World"}');
+      break;
     case "editdata":
+      
       break;
     default:
       msg.reply('the command you called for does not exist.');
