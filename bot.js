@@ -54,11 +54,10 @@ client.on('message', msg => {
           'Content-Type': 'application/json',
           'secret-key': `${secret}`
         }
-      }) 
-      .then(function (response) {
+      }).then(function (response) {
+        console.log(response);
     msg.reply(response);
-  })
-  .catch(function (error) {
+  }).catch(function (error) {
     msg.reply(error);
   });
       break;
