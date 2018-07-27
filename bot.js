@@ -14,10 +14,12 @@ var servers = {};
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
- client.user.setGame("Galactic Conquest", "https://www.roblox.com/games")
+ client.user.setGame("Galactic Conquest", "https://www.roblox.com/games");
   let gamedata = {
     "game.name":"Galatic Conquest"
   };
+  let kyberguild = client.guilds.find('name', 'Kyber Games Community (Official)');
+  let actionlogchannel = kyberguilds.channels.find('name', 'action_logs');
   client.user.setPresence(gamedata);
   client.generateInvite(["ADMINISTRATOR"])
   .then(link => {
@@ -38,20 +40,37 @@ client.on('message', msg => {
   embed.addField("Location:", `${msg.channel}`);
   embed.addField('Content:', `${msg.content}`);
   channel.sendMessage({embed});*/
+  let embed = new Discord.RichEmbed();
+  embed.setTitle("Attempted database access.");
+  embed.setThumbnail(client.user.displayAvatarURL);
+  embed.setColor("0000FF");
+  embed.setDescription('${msg.author.username} attempted to access the database.')
+  embed.setTimestamp(new Date())
+  embed.setAuthor(msg.author)
   if (!msg.content.startsWith(PREFIX)) return;
   var args = msg.content.substring(PREFIX.length).split(" ");
   switch (args[0].toLowerCase()) {
     case "requestdata":
+      embed.addField('Command', 'RequestDATA');
       if (!args[1]) {
         msg.reply('please enter the authorization code to use this command.');
+       embed.addField('Result:', 'Access Denied');
+        embed.addField('Error:', 'nil_auth');
+        actionlogchannel.sendMessage({embed})
         return;
       }
       if (args[1] !== pass) {
-        msg.reply('invalid command authorization code.')
+        msg.reply('invalid command authorization code.');
+        embed.addField('Result:', 'Access Denied');
+        embed.addField('Error:', 'bad_auth');
+        actionlogchannel.sendMessage({embed})
         return;
       }
       if (!args[2]) {
         msg.reply('please specify the bin you would like to retrieve.')
+       embed.addField('Result:', 'Access Denied');
+        embed.addField('Error:', 'no_bin_');
+        actionlogchannel.sendMessage({embed})
         return;
       }
       let requesturl = `https://api.jsonbin.io/b/${args[2]}`
@@ -68,23 +87,53 @@ client.on('message', msg => {
   }).catch(function (error) {
     console.log(error);
   });
+      embed.addField('Result:', 'Access Granted');
+      actionlogchannel.sendMessage({embed})
       break;
     /*case "test":
       msg.reply('this is a response to a test prompt message.');
       break;*/
+                   
+    case "deletedata":
+      
+    break;
     case "createdata":
+      embed.addField('Command', 'CreateDATA');
+      if (!args[1]) {
+        msg.reply('please enter the authorization code to use this command.');
+       embed.addField('Result:', 'Access Denied');
+        embed.addField('Error:', 'nil_auth');
+        actionlogchannel.sendMessage({embed})
+        return;
+      }
+      if (args[1] !== pass) {
+        msg.reply('invalid command authorization code.');
+        embed.addField('Result:', 'Access Denied');
+        embed.addField('Error:', 'bad_auth');
+        actionlogchannel.sendMessage({embed})
+        return;
+      }
+      if (!args[2]) {
+        msg.reply('please specify the bin you would like to retrieve.')
+       embed.addField('Result:', 'Access Denied');
+        embed.addField('Error:', 'no_bin_');
+        actionlogchannel.sendMessage({embed})
+        return;
+      }
       axios.request({
         url: 'https://api.jsonbin.io/b',
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'secret-key': `${secret}`,
-          'collection-id': (args[1])
+          'collection-id': (args[2])
         },
         data: {
           testValue: 21
         }
       });
+      embed.addField('Result:', 'Access Granted');
+      actionlogchannel.sendMessage({embed})
       break;
     case "announcement":
       
