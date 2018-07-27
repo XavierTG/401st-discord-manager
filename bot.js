@@ -68,7 +68,7 @@ client.on('message', msg => {
         data: {
           testValue: 37
         }
-      };
+      });
       break;
     case "editdata":
       
