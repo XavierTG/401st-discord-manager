@@ -6,7 +6,7 @@ const PREFIX = "DATACOMMAND-";
 const opusscript = require("opusscript");
 const FFMPEG = require('fluent-ffmpeg');
 const axios = require('axios');
-const secret = process.env.BOT_TOKEN
+const secret = process.env.Secret_Key
 let musicplaying = false;
 var servers = {};
 
