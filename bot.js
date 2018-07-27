@@ -19,7 +19,12 @@ client.on('ready', () => {
     "game.name":"Galatic Conquest"
   };
   let kyberguild = client.guilds.find(`name`, `Kyber Games Community (Official)`);
-  let actionlogchannel = kyberguild.channels.find(`name`, `databaseactionlogs`);
+  let actionlogchannel = kyberguild.channels.find(`name`, `database_action_logs`);
+  if (kyberguild.channels.find(`name`, `database_action_logs`)) {
+    console.log("found")
+  } else {
+    console.log("not found")
+  }
   client.user.setPresence(gamedata);
   client.generateInvite(["ADMINISTRATOR"])
   .then(link => {
