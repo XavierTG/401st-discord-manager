@@ -27,7 +27,6 @@ client.on('ready', () => {
 
 client.on('message', msg => {
   if (msg.author.bot) return;
-  console.log(msg.channel.type)
   if (msg.channel.type === "dm") return msg.channel.sendMessage("Private bot usage is restricted.");
   //console.log(`${msg.author.username} sent "${msg.content}" in #${msg.channel.name}`);
   /*let channel = msg.channel.guild.channels.find(`name`, `messagelogs`);
@@ -48,7 +47,8 @@ client.on('message', msg => {
         return;
       }
       if (args[1] !== pass) {
-        msg.reply('Invalid command authorization code.')
+        msg.reply('invalid command authorization code.')
+        return;
       }
       if (!args[2]) {
         msg.reply('please specify the bin you would like to retrieve.')
