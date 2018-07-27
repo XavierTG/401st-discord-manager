@@ -5,7 +5,7 @@ const YTDL = require("ytdl-core");
 const PREFIX = "DATACOMMAND-";
 const opusscript = require("opusscript");
 const FFMPEG = require('fluent-ffmpeg');
-const axios = require('axios')
+const axios = require('axios');
 let musicplaying = false;
 var servers = {};
 
