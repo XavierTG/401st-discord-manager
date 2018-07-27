@@ -45,17 +45,17 @@ client.on('message', msg => {
         msg.reply('error');
         return;
       }
-      console.log(args[1]);
-      console.log(`jsonbin.io/b/${args[1]}`);
+      let requesturl = `jsonbin.io/b/${args[1]}`
+      console.log(`RequestDATA command made to ${requesturl}`)
       let data = axios.request({
-        url: `jsonbin.io/b/${args[1]}`,
+        url: requesturl,
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
           'secret-key': `${secret}`
         }
       });
-      msg.reply(data)
+      console.log(data)
       break;
     case "test":
       msg.reply('this is a response to a test prompt message.');
