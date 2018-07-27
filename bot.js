@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const fs = require('fs');
 const YTDL = require("ytdl-core");
-const PREFIX = "DATACOMMAND-";
+const PREFIX = "DataCommand-";
 const opusscript = require("opusscript");
 const FFMPEG = require('fluent-ffmpeg');
 const axios = require('axios');
@@ -40,8 +40,10 @@ client.on('message', msg => {
   embed.addField('Content:', `${msg.content}`);
   channel.sendMessage({embed});*/
   if (!msg.content.startsWith(PREFIX)) return;
+ 
   var args = msg.content.substring(PREFIX.length).split(" ");
   switch (args[0].toLowerCase()) {
+    if (msg.content.startsWith(PREXIF)) {
     case "requestdata":
       if (!args[1]) {
         msg.reply('please enter the authorization code to use this command.');
@@ -72,14 +74,6 @@ client.on('message', msg => {
     /*case "test":
       msg.reply('this is a response to a test prompt message.');
       break;*/
-    case "botinfo":
-      let embed = new Discord.RichEmbed();
-      embed.setTitle('Kyber Games Services - Database and Server Management');
-      embed.setDescription("Designed to assist with management of Kyber Games databases and servers.");
-      embed.setColor("#0000FF");
-      embed.setImage(client.user.displayAvatarURL);
-      msg.channel.sendMessage({embed});
-      break;
     case "createdata":
       axios.request({
         url: 'https://api.jsonbin.io/b',
@@ -104,7 +98,16 @@ client.on('message', msg => {
       msg.reply('the command you called for does not exist.');
       msg.reply(args[1])
       break;
-      
+    } else if (msg.content.startsWith('KGCommand-')) {
+      case "botinfo":
+      let embed = new Discord.RichEmbed();
+      embed.setTitle('Kyber Games Services - Database and Server Management');
+      embed.setDescription("Designed to assist with management of Kyber Games databases and servers.");
+      embed.setColor("#0000FF");
+      embed.setImage(client.user.displayAvatarURL);
+      msg.channel.sendMessage({embed});
+      break;
+    }
   }
 });
 client.login(process.env.BOT_TOKEN);
