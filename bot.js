@@ -45,7 +45,7 @@ client.on('message', msg => {
         msg.reply('error');
         return;
       }
-      let requesturl = `jsonbin.io/b/${args[1]}`
+      let requesturl = `api.jsonbin.io/b/${args[1]}`
       console.log(`RequestDATA command made to ${requesturl}`)
       axios.request({
         url: requesturl,
