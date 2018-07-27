@@ -95,8 +95,7 @@ client.on('message', msg => {
       
       break;
     default:
-      msg.reply('the command you called for does not exist.');
-      msg.reply(args[1])
+      msg.reply("the command you called for doesn't exist.");
       break;
     } else if (msg.content.startsWith('KGCommand-')) {
       case "botinfo":
@@ -107,6 +106,8 @@ client.on('message', msg => {
       embed.setImage(client.user.displayAvatarURL);
       msg.channel.sendMessage({embed});
       break;
+      default:
+      msg.reply("the command you called for doesn't exist.")
     }
   }
 });
