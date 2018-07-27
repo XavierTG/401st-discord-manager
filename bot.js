@@ -64,9 +64,10 @@ client.on('message', msg => {
         headers: {
           'Content-Type': 'application/json',
           'secret-key': '$2a$10$xlr.dknPAEL7GsAQMmECR.Ds2YVAwzmgl88Zf2yQoojOpzvHw7d4u'
+          'collection-id: (args[1])
         },
         data: {
-          testValue: 37
+          testValue: 21
         }
       });
       break;
