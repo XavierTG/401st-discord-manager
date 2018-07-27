@@ -55,7 +55,7 @@ client.on('message', msg => {
           'secret-key': secret
         }
       }).then(function (response) {
-    msg.reply(response.data);
+    msg.reply(`${response.data`});
   }).catch(function (error) {
     console.log(error);
   });
