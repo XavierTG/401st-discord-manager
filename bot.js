@@ -6,6 +6,7 @@ const PREFIX = "DATACOMMAND-";
 const opusscript = require("opusscript");
 const FFMPEG = require('fluent-ffmpeg');
 const axios = require('axios');
+const secret = process.env.BOT_TOKEN
 let musicplaying = false;
 var servers = {};
 
@@ -43,8 +44,20 @@ client.on('message', msg => {
         msg.reply('error');
         return;
       }
-      msg.reply(args[1])
-      msg.reply(args[2])
+      axios.request({
+        url: 'jsonbin.io/b/${args[1]}',
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'secret-key': '${secret}'
+        }
+      });
+      .then(function (response) {
+    msg.reply(response);
+  })
+  .catch(function (error) {
+    msg.reply(error);
+  });
       break;
     case "test":
       msg.reply('this is a response to a test prompt message.');
@@ -63,7 +76,7 @@ client.on('message', msg => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'secret-key': '$2a$10$xlr.dknPAEL7GsAQMmECR.Ds2YVAwzmgl88Zf2yQoojOpzvHw7d4u',
+          'secret-key': '${secret}',
           'collection-id': (args[1])
         },
         data: {
