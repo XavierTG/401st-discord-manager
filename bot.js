@@ -49,7 +49,7 @@ client.on('message', msg => {
   if (msg.content.startsWith('-401-')) {
     msg.reply('you did not call for a valid command. Available commands are: -401-addAoS, -401-removeAoS');
     return;
-  });
+  };
 });
 
 client.login(process.env.BOT_TOKEN);
