@@ -15,6 +15,7 @@
   "jquery": "^2.1.1",
   "fluent-ffmpeg": "^2.1.2", 
   "less": "^2.1.0",
-  "axios": "0.18.0"
+  "axios": "0.18.0",
+  "jsonbin-io-api": "1.0.0"
   }
  }
